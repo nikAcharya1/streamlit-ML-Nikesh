@@ -3,8 +3,5 @@ import numpy as np
 import pandas as pd
 import streamlit as st
 
-"""
-# Welcome to Streamlit!
-"""
 st.write("Remove background from your image")
 
