@@ -4,4 +4,3 @@ import pandas as pd
 import streamlit as st
 
 st.write("Remove background from your image")
-st.write(round(3.586, 2))
