@@ -9,12 +9,9 @@ MAX_FILE_SIZE = 5 * 1024 * 1024  # 5MB
 
 def fix_image(upload):
     image = Image.open(upload)
-    col1.write("Original Image :camera:")
-    col1.image(image)
-
-    col2.write("Fixed Image :wrench:")
-
-col1, col2 = st.columns(2)
+    write("Original Image :camera:")
+    image(image)
+    
 my_upload = st.sidebar.file_uploader("Upload an image", type=["png", "jpg", "jpeg"])
 
 if my_upload is not None:
