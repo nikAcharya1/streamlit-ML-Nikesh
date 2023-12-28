@@ -6,4 +6,5 @@ import streamlit as st
 """
 # Welcome to Streamlit!
 """
-print("Hello Hi", round(3.586, 2))
+st.write("Remove background from your image")
+
