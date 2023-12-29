@@ -1,6 +1,6 @@
 import streamlit as st
 from PIL import Image
-import tensorflow
+pip install tensorflow
 from tensorflow.keras.models import load_model
 from tensorflow.keras.utils import load_img
 from tensorflow.keras.utils import img_to_array
