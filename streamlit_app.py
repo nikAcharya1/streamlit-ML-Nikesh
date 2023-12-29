@@ -1,26 +1,41 @@
 import streamlit as st
 from PIL import Image
-from io import BytesIO
-import base64
+from keras.models import load_model
+from tensorflow.keras.utils import load_img
+from tensorflow.keras.utils import img_to_array
+import numpy as np
 
-st.set_page_config(layout="wide", page_title="Image Background Remover")
+# Load pre-trained model
+model = load_model('Model1-Run1.h5')
 
-st.write("## Remove background from your image")
-st.sidebar.write("## Upload and download :gear:")
+def preprocess_image(image_path):
+    img = Image.open(image_path)
+    load_image = load_img(image_path, target_size=(224, 224))
+    img_array = img_to_array(load_image)
+    img_array = img_array / 255.0
+    img_array = img_array.reshape(1, 224, 224, 3)
+    return img_array
 
-MAX_FILE_SIZE = 5 * 1024 * 1024  # 5MB
+def predict_image(image_array):
+    predictions = model.predict(image_array)
+    return predictions
 
-def fix_image(upload):
-    image = Image.open(upload)
-    write("Original Image :camera:")
-    image(image)
-    
-my_upload = st.sidebar.file_uploader("Upload an image", type=["png", "jpg", "jpeg"])
+def main():
+    st.title("Image Classification App")
 
-if my_upload is not None:
-    if my_upload.size > MAX_FILE_SIZE:
-        st.error("The uploaded file is too large. Please upload an image smaller than 5MB.")
-    else:
-        fix_image(upload=my_upload)
-else:
-    fix_image("./zebra.jpg")
+    uploaded_file = st.file_uploader("Choose an image...", type="jpg")
+
+    if uploaded_file is not None:
+        st.image(uploaded_file, caption="Uploaded Image.", use_column_width=True)
+        st.write("")
+        st.write("Classifying...")
+
+        # Preprocess and predict
+        image_array = preprocess_image(uploaded_file)
+        predictions = predict_image(image_array)
+
+        # Display predictions
+        st.write(round(predictions[0][0], 2))
+
+if __name__ == "__main__":
+    main()
