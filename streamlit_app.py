@@ -44,39 +44,5 @@ def main():
         st.write("Model 2 =", round(predictions12[0][0], 2))
         st.write("Model 3 =", round(predictions13[0][0], 2))
 
-        # Select option and submit entry
-        
-        # Load existing data from CSV (if it exists)
-        file_path = 'user_options.csv'
-        try:
-            data = pd.read_csv(file_path)
-        except FileNotFoundError:
-            data = pd.DataFrame(columns=['Actual Class', 'Most Accurate Model'])
-
-        # Define a list of options
-        options1 = ["0", "1"]
-        options2 = ["Model 1", "Model 2", "Model 3", "Similar accuracy across all models"]
-
-        # Create a selectbox for multiple choices
-        selected_option1 = st.selectbox("Select correct class:", options1)
-        selected_option2 = st.selectbox("Select most accurate model:", options2)
-        
-        # Add a submit button
-        if st.button("Submit"):
-            # Append the selected option to the DataFrame
-            data = data.append({'Actual Class': selected_option1, 
-                               'Most Accurate Model': selected_option2}, ignore_index=True)
-
-            # Save the updated DataFrame to the CSV file
-            data.to_csv(file_path, index=False)
-
-            st.write("Data updated. You selected:")
-            st.write("Actual Class:", selected_option1)
-            st.write("Most Accurate Model:", selected_option2)
-
-        # Display the existing data
-        # st.write("Existing Data:")
-        st.write(data)
-
 if __name__ == "__main__":
     main()
