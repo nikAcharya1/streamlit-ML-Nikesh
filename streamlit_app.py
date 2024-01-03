@@ -33,7 +33,7 @@ def main():
     if uploaded_file is not None:
         st.image(uploaded_file, caption="Uploaded Image.")
         st.write("")
-        st.write(**Results of Binary Image Classification (1- Glasses, 0 - None):**)
+        st.write("Results of Binary Image Classification (1- Glasses, 0 - None):")
 
         # Preprocess and classify
         image_array = preprocess_image(uploaded_file)
