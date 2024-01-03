@@ -3,6 +3,7 @@ from PIL import Image
 from keras.models import load_model
 from tensorflow.keras.utils import load_img
 from tensorflow.keras.utils import img_to_array
+from keras.applications.vgg16 import preprocess_input
 import numpy as np
 import pandas as pd
 
