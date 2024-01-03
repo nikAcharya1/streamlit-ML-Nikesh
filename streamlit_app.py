@@ -26,20 +26,20 @@ def predict_image(image_array):
     return predictions11, predictions12, predictions13
 
 def main():
-    st.title("Image Classification App")
+    st.title("Facial Image Classification App")
 
-    uploaded_file = st.file_uploader("Choose an image...", type=["png", "jpg", "jpeg"])
+    uploaded_file = st.file_uploader("Choose a facial image...", type=["png", "jpg", "jpeg"])
 
     if uploaded_file is not None:
         st.image(uploaded_file, caption="Uploaded Image.")
         st.write("")
-        st.write("Classifying...")
+        st.write("Results of Binary Image Classification (1- Glasses, 0 - None):")
 
-        # Preprocess and predict
+        # Preprocess and classify
         image_array = preprocess_image(uploaded_file)
         predictions11, predictions12, predictions13 = predict_image(image_array)
 
-        # Display predictions
+        # Display classification results
         st.write("Model 1 =", round(predictions11[0][0], 2))
         st.write("Model 2 =", round(predictions12[0][0], 2))
         st.write("Model 3 =", round(predictions13[0][0], 2))
