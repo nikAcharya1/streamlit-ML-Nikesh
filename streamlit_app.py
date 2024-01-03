@@ -14,9 +14,8 @@ model13 = load_model('Model1-Run3.h5')
 def preprocess_image(image_path):
     img = Image.open(image_path)
     load_image = load_img(image_path, target_size=(224, 224))
-    img_array = img_to_array(load_image)
-    img_array = img_array / 255.0
-    img_array = img_array.reshape(1, 224, 224, 3)
+    img = img_to_array(load_image)
+    img_array = preprocess_input(img.reshape(1,224,224,3))
     return img_array
 
 def predict_image(image_array):
