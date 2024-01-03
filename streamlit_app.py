@@ -28,7 +28,7 @@ def predict_image(image_array):
 def main():
     st.title("Facial Image Classification App")
 
-    uploaded_file = st.file_uploader(**"Choose a facial image...", type=["png", "jpg", "jpeg"])
+    uploaded_file = st.file_uploader("\033[1m" + "Choose a facial image...", type=["png", "jpg", "jpeg"])
 
     if uploaded_file is not None:
         st.image(uploaded_file, caption="Uploaded Image.")
