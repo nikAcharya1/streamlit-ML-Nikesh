@@ -6,6 +6,7 @@ from tensorflow.keras.utils import img_to_array
 from keras.applications.vgg16 import preprocess_input
 import numpy as np
 import pandas as pd
+/home/adminuser/venv/bin/python -m pip install --upgrade pip
 
 # Load pre-trained model
 model11 = load_model('Model1-Run1.h5')
