@@ -1,5 +1,4 @@
 altair
 pandas
--U streamlit
+streamlit
 tensorflow
-python -m pip install --upgrade pip
