@@ -43,9 +43,9 @@ def main():
         predictions11, predictions12, predictions13 = predict_image(image_array)
 
         # Display classification results
-        st.write("Model 1 =", round(predictions11[0][0], 1))
-        st.write("Model 2 =", round(predictions12[0][0], 2))
-        st.write("Model 3 =", round(predictions13[0][0], 2))
+        st.write("Model 1 =", round(predictions11[0][0]))
+        st.write("Model 2 =", round(predictions12[0][0]))
+        st.write("Model 3 =", round(predictions13[0][0]))
 
 if __name__ == "__main__":
     main()
