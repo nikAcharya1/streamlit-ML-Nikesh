@@ -1,3 +1,4 @@
+# Load necessary libraries 
 import streamlit as st
 from PIL import Image
 from keras.models import load_model
@@ -6,11 +7,13 @@ from tensorflow.keras.utils import img_to_array
 from keras.applications.vgg16 import preprocess_input
 import numpy as np
 import pandas as pd
+import warnings
+warnings.filterwarnings('ignore')
 
 # Load pre-trained model
-model11 = load_model('Model1-Run1.h5')
-model12 = load_model('Model1-Run2.h5')
-model13 = load_model('Model1-Run3.h5')
+model11 = load_model('Model1.h5')
+model12 = load_model('Model2.h5')
+model13 = load_model('Model3.h5')
 
 def preprocess_image(image_path):
     img = Image.open(image_path)
@@ -40,7 +43,7 @@ def main():
         predictions11, predictions12, predictions13 = predict_image(image_array)
 
         # Display classification results
-        st.write("Model 1 =", round(predictions11[0][0], 2))
+        st.write("Model 1 =", round(predictions11[0][0], 1))
         st.write("Model 2 =", round(predictions12[0][0], 2))
         st.write("Model 3 =", round(predictions13[0][0], 2))
 
