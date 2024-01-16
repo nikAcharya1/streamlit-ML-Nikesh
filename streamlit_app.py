@@ -9,7 +9,7 @@ import numpy as np
 import pandas as pd
 import warnings
 warnings.filterwarnings('ignore')
-st.write(st.__version__)
+
 # Load pre-trained model
 model11 = load_model('Model1.h5')
 model12 = load_model('Model2.h5')
