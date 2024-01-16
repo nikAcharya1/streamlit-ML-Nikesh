@@ -28,7 +28,6 @@ def predict_image(image_array):
     predictions13 = model13.predict(image_array)
     return predictions11, predictions12, predictions13
 
-@st.cache_resource
 def main():
     st.title("Facial Image Classification App")
 
@@ -48,6 +47,5 @@ def main():
         st.write("Model 2 =", round(predictions12[0][0]))
         st.write("Model 3 =", round(predictions13[0][0]))
 
-@st.cache_resource
 if __name__ == "__main__":
     main()
