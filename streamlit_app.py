@@ -28,7 +28,7 @@ def predict_image(image_array):
     predictions13 = model13.predict(image_array)
     return predictions11, predictions12, predictions13
 
-@st.cache_data
+@st.cache_data(experimental_allow_widgets=True)
 def main():
     st.title("Facial Image Classification App")
 
