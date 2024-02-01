@@ -14,6 +14,8 @@ warnings.filterwarnings('ignore')
 model11 = load_model('Model1.h5')
 model12 = load_model('Model2.h5')
 model13 = load_model('Model3.h5')
+model14 = load_model('Model4.h5')
+model15 = load_model('Model5.h5')
 
 def preprocess_image(image_path):
     img = Image.open(image_path)
@@ -26,7 +28,9 @@ def predict_image(image_array):
     predictions11 = model11.predict(image_array)
     predictions12 = model12.predict(image_array)
     predictions13 = model13.predict(image_array)
-    return predictions11, predictions12, predictions13
+    predictions14 = model14.predict(image_array)
+    predictions15 = model15.predict(image_array)
+    return predictions11, predictions12, predictions13, predictions14, predictions15
 
 def main():
     st.title("Facial Image Classification App")
@@ -40,12 +44,14 @@ def main():
 
         # Preprocess and classify
         image_array = preprocess_image(uploaded_file)
-        predictions11, predictions12, predictions13 = predict_image(image_array)
+        predictions11, predictions12, predictions13, predictions14, predictions15 = predict_image(image_array)
 
         # Display classification results
         st.write("Model 1 =", round(predictions11[0][0]))
         st.write("Model 2 =", round(predictions12[0][0]))
         st.write("Model 3 =", round(predictions13[0][0]))
+        st.write("Model 4 =", round(predictions14[0][0]))
+        st.write("Model 5 =", round(predictions15[0][0]))
 
 if __name__ == "__main__":
     main()
