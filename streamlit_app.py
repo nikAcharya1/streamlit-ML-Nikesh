@@ -7,6 +7,7 @@ from tensorflow.keras.utils import img_to_array
 from keras.applications.vgg16 import preprocess_input
 import numpy as np
 import pandas as pd
+import matplotlib.pyplot as plt
 import warnings
 warnings.filterwarnings('ignore')
 
@@ -53,5 +54,66 @@ def main():
         st.write("Model 4 =", round(predictions14[0][0]))
         st.write("Model 5 =", round(predictions15[0][0]))
 
+        # Select option and submit entry
+        
+        # Load existing data from CSV (if it exists)
+        file_path = 'user_options.csv'
+        try:
+            data = pd.read_csv(file_path)
+        except FileNotFoundError:
+            data = pd.DataFrame(columns=['Actual Class', 'Models that correctly classified'])
+
+        # Define a list of options
+        options1 = ["0 - No Eyeglasses", "1 - Eyeglasses Present"]
+        options2 = ["Model 1", "Model 2", "Model 3", "Model 4", "Model 5"]
+
+        selected_option1 = st.selectbox("Select correct class:", options1)
+        st.write("Select the model/s that correctly classified:")
+        
+        # Create a list to store the state of each checkbox
+        checkbox_states = {}
+
+        # Iterate over each option and create a checkbox for it
+        for option in options2:
+            # Use the checkbox function to create a clickable checkbox
+            checkbox_states[option] = st.checkbox(option)
+
+        # Add a submit button
+        if st.button("Submit"):
+            # Filter the selected options based on the checkbox states
+            selected_options2 = [option for option, state in checkbox_states.items() if state]
+
+           # Create a new DataFrame with the selected options
+            new_data = pd.DataFrame({'Actual Class': selected_option1,
+                                     'Models that correctly classified': selected_options2})
+
+            # Concatenate the new data with the existing DataFrame
+            data = pd.concat([data, new_data], ignore_index=True)
+
+            # Save the updated DataFrame to the CSV file
+            data.to_csv(file_path, index=False)
+            
+            st.write("Data updated.")
+            
+            # Load existing data from CSV
+            file_path = 'user_options.csv'
+            data = pd.read_csv(file_path)
+            
+            st.title("Pie Chart from CSV Data")
+
+            # Create a pie chart for 'Models that correctly classified'
+            if not data.empty:
+                # Count the occurrences of each value in 'Models that correctly classified' column
+                model_counts = data['Models that correctly classified'].value_counts()
+
+                # Plot the pie chart
+                fig, ax = plt.subplots()
+                ax.pie(model_counts, labels=model_counts.index, autopct='%1.1f%%', startangle=90)
+                ax.axis('equal')  # Equal aspect ratio ensures that pie is drawn as a circle.
+                st.pyplot(fig)
+            else:
+                st.write("No data available to create a pie chart.")
+            
+     
 if __name__ == "__main__":
     main()
