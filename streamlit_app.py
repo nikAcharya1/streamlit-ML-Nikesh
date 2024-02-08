@@ -39,7 +39,7 @@ def main():
     uploaded_file = st.file_uploader("**Choose a facial image...**", type=["png", "jpg", "jpeg"])
 
     if uploaded_file is not None:
-        st.image(uploaded_file, caption="Uploaded Image.")
+        st.image(uploaded_file, width=200, caption="Uploaded Image.")
         st.write("")
         st.write("**Results of Binary Image Classification (1- Glasses, 0 - None):**")
 
@@ -99,7 +99,7 @@ def main():
             file_path = 'user_options.csv'
             data = pd.read_csv(file_path)
             
-            st.title("Pie Chart from CSV Data")
+            st.title("Breakdown of How Many Correct Classifications Each Model Made So Far:")
 
             # Create a pie chart for 'Models that correctly classified'
             if not data.empty:
