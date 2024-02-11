@@ -95,7 +95,7 @@ def main():
             file_path = 'user_options3.csv'
             data = pd.read_csv(file_path)
             
-            st.write("<div style='font-size: 28px;'>User Feedback on Model Accuracy</div>", unsafe_allow_html=True)
+            st.write("<div style='text-align: center; font-size: 22px;'>Correct Classifications Each Model Made</div>", unsafe_allow_html=True)
 
             # Create a pie chart for 'Models that correctly classified'
             if not data.empty:
