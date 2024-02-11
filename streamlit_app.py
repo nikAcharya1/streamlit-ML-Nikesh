@@ -99,12 +99,15 @@ def main():
 
                 # Plot the pie chart
                 fig, ax = plt.subplots()
-                ax.pie(model_counts, labels=model_counts.index, autopct='%1.1f%%', startangle=90)
+                
+                # Create labels with both count and percentage
+                labels = [f'{index}: {count} ({(count / len(data)) * 100:.1f}%)' for index, count in model_counts.items()]
+                
+                ax.pie(model_counts, labels=labels, startangle=90)
                 ax.axis('equal')  # Equal aspect ratio ensures that pie is drawn as a circle.
                 st.pyplot(fig)
             else:
                 st.write("No data available to create a pie chart.")
-            
-     
+               
 if __name__ == "__main__":
     main()
