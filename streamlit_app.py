@@ -37,7 +37,7 @@ def main():
     if uploaded_file is not None:
         st.image(uploaded_file, width=200, caption="Uploaded Image.")
         st.write("")
-        st.write("**Results of Binary Image Classification (1 - Eyeglasses Present, 0 - None):**")
+        st.write("**Results of Binary Image Classification (1 - Eyeglasses Present, 0 - No Eyeglasses):**")
 
         # Preprocess and classify
         image_array = preprocess_image(uploaded_file)
@@ -60,8 +60,11 @@ def main():
         options1 = ["0 - No Eyeglasses", "1 - Eyeglasses Present"]
         options2 = ["Model A", "Model B"]
 
-        selected_option1 = st.selectbox("Select correct class:", options1)
-        st.write("Select the model/s that correctly classified:")
+        st.write("")
+        st.write("<div style='text-align: center; font-size: 24px;'>User Feedback on Model Accuracy</div>", unsafe_allow_html=True)
+        
+        selected_option1 = st.radio("Select correct class:", options1)
+        st.write("Select the models that correctly classified:")
         
         # Create a list to store the state of each checkbox
         checkbox_states = {}
