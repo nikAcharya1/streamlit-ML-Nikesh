@@ -103,7 +103,11 @@ def main():
                 # Create labels with both count and percentage
                 labels = [f'{index}: {count} ({(count / len(data)) * 100:.1f}%)' for index, count in model_counts.items()]
                 
-                ax.pie(model_counts, labels=labels, startangle=90)
+                # Plot the pie chart with labels inside
+                wedges, texts, autotexts = ax.pie(model_counts, labels=model_counts.index, autopct='%1.1f%%', startangle=90, textprops=dict(color="w"))
+                
+                # Adjust the position of the labels to be inside the pie chart
+                plt.setp(autotexts, size=8, weight="bold")
                 ax.axis('equal')  # Equal aspect ratio ensures that pie is drawn as a circle.
                 st.pyplot(fig)
             else:
