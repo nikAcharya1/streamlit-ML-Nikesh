@@ -50,7 +50,7 @@ def main():
         # Select option and submit entry
         
         # Load existing data from CSV (if it exists)
-        file_path = 'user_options2.csv'
+        file_path = 'user_options3.csv'
         try:
             data = pd.read_csv(file_path)
         except FileNotFoundError:
@@ -92,10 +92,10 @@ def main():
             st.write("Data updated.")
             
             # Load existing data from CSV
-            file_path = 'user_options2.csv'
+            file_path = 'user_options3.csv'
             data = pd.read_csv(file_path)
             
-            st.title("Breakdown of How Many Correct Classifications Each Model Made So Far:")
+            st.write("<div style='font-size: 28px;'>User Feedback on Model Accuracy</div>", unsafe_allow_html=True)
 
             # Create a pie chart for 'Models that correctly classified'
             if not data.empty:
