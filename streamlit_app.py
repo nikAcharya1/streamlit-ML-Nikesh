@@ -58,7 +58,7 @@ def main():
 
         # Define a list of options
         options1 = ["0 - No Eyeglasses", "1 - Eyeglasses Present"]
-        options2 = ["Model A", "Model B", "None"]
+        options2 = ["Model A", "Model B", "Neither"]
 
         st.write("")
         st.write("<div style='text-align: center; font-size: 24px;'>User Feedback on Model Accuracy</div>", unsafe_allow_html=True)
