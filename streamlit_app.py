@@ -29,6 +29,8 @@ def predict_image(image_array):
 
 def main():
     st.title("Facial Image Classification App")
+    st.write("<div style='font-size: 24px;'>This application allows a user to upload a facial image and it uses pre-trained AI models to classify if a person has eyeglasses or not.</div>", unsafe_allow_html=True)
+    st.write("")
 
     uploaded_file = st.file_uploader("**Choose a facial image...**", type=["png", "jpg", "jpeg"])
 
