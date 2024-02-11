@@ -12,11 +12,8 @@ import warnings
 warnings.filterwarnings('ignore')
 
 # Load pre-trained model
-model11 = load_model('Model1.h5')
-model12 = load_model('Model2.h5')
 model13 = load_model('Model3.h5')
 model14 = load_model('Model4.h5')
-model15 = load_model('Model5.h5')
 
 def preprocess_image(image_path):
     img = Image.open(image_path)
@@ -26,12 +23,9 @@ def preprocess_image(image_path):
     return img_array
 
 def predict_image(image_array):
-    predictions11 = model11.predict(image_array)
-    predictions12 = model12.predict(image_array)
     predictions13 = model13.predict(image_array)
     predictions14 = model14.predict(image_array)
-    predictions15 = model15.predict(image_array)
-    return predictions11, predictions12, predictions13, predictions14, predictions15
+    return predictions13, predictions14
 
 def main():
     st.title("Facial Image Classification App")
@@ -41,18 +35,15 @@ def main():
     if uploaded_file is not None:
         st.image(uploaded_file, width=200, caption="Uploaded Image.")
         st.write("")
-        st.write("**Results of Binary Image Classification (1- Glasses, 0 - None):**")
+        st.write("**Results of Binary Image Classification (1 - Eyeglasses Present, 0 - None):**")
 
         # Preprocess and classify
         image_array = preprocess_image(uploaded_file)
-        predictions11, predictions12, predictions13, predictions14, predictions15 = predict_image(image_array)
+        predictions13, predictions14 = predict_image(image_array)
 
         # Display classification results
-        st.write("Model 1 =", round(predictions11[0][0]))
-        st.write("Model 2 =", round(predictions12[0][0]))
-        st.write("Model 3 =", round(predictions13[0][0]))
-        st.write("Model 4 =", round(predictions14[0][0]))
-        st.write("Model 5 =", round(predictions15[0][0]))
+        st.write("Model A =", round(predictions13[0][0]))
+        st.write("Model B =", round(predictions14[0][0]))
 
         # Select option and submit entry
         
@@ -65,7 +56,7 @@ def main():
 
         # Define a list of options
         options1 = ["0 - No Eyeglasses", "1 - Eyeglasses Present"]
-        options2 = ["Model 1", "Model 2", "Model 3", "Model 4", "Model 5"]
+        options2 = ["Model A", "Model B"]
 
         selected_option1 = st.selectbox("Select correct class:", options1)
         st.write("Select the model/s that correctly classified:")
