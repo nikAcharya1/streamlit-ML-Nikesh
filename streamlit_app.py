@@ -50,7 +50,7 @@ def main():
         # Select option and submit entry
         
         # Load existing data from CSV (if it exists)
-        file_path = 'user_options2.csv'
+        file_path = 'user_options1.csv'
         try:
             data = pd.read_csv(file_path)
         except FileNotFoundError:
@@ -58,7 +58,7 @@ def main():
 
         # Define a list of options
         options1 = ["0 - No Eyeglasses", "1 - Eyeglasses Present"]
-        options2 = ["Model A", "Model B", "None of the above"]
+        options2 = ["Model A", "Model B", "None"]
 
         st.write("")
         st.write("<div style='text-align: center; font-size: 24px;'>User Feedback on Model Accuracy</div>", unsafe_allow_html=True)
@@ -92,7 +92,7 @@ def main():
             st.write("Data updated.")
             
             # Load existing data from CSV
-            file_path = 'user_options2.csv'
+            file_path = 'user_options1.csv'
             data = pd.read_csv(file_path)
             
             st.title("Breakdown of How Many Correct Classifications Each Model Made So Far:")
