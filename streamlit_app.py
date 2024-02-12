@@ -29,9 +29,20 @@ def predict_image(image_array):
 
 def main():
     st.title("Facial Image Classification App")
-    st.write("<div style='font-size: 24px;'>This application allows a user to upload a facial image and it uses pre-trained AI models to classify if a person has eyeglasses or not.</div>", unsafe_allow_html=True)
-    st.write("")
+    st.write("<div style='font-size: 24px;'>This application allows a user to upload a facial image and it uses pre-trained AI models to classify if a person has eyeglasses or not. Additionally, user can provide feedback based on classification results to compare model performances. </div>", unsafe_allow_html=True)
+    st.write("<div style='font-size: 24px;'>Some FYIs:</div>", unsafe_allow_html=True)
+    
+    # Define your list
+    my_list = ["User uploaded images are not saved. So, no privacy concerns.",
+        "For better results, upload face image with face covering majority of the image area."]
 
+    # Convert the list items to a bulleted list using HTML tags
+    bulleted_list = "<ul>" + "".join([f"<li>{item}</li>" for item in my_list]) + "</ul>"
+
+    # Display the bulleted list using markdown
+    st.markdown(bulleted_list, unsafe_allow_html=True)
+    st.write("")
+    
     uploaded_file = st.file_uploader("**Choose a facial image...**", type=["png", "jpg", "jpeg"])
 
     if uploaded_file is not None:
@@ -94,9 +105,11 @@ def main():
             # Load existing data from CSV
             file_path = 'user_options3.csv'
             data = pd.read_csv(file_path)
-            
-            st.write("<div style='text-align: center; font-size: 22px;'>Correct Classifications Each Model Made</div>", unsafe_allow_html=True)
-
+            total_responses = len(data)
+            st.write("<div style='text-align: center; font-size: 22px;'>Pie Chart Showing Correct Classifications Each Model Made So far:</div>", unsafe_allow_html=True)
+            st.write(f"<div style='text-align: center; font-size: 22px;'>Total User Responses = {total_responses}</div>", unsafe_allow_html=True)
+    
+            st.write("Total User Responses = ", len(data))
             # Create a pie chart for 'Models that correctly classified'
             if not data.empty:
                 # Count the occurrences of each value in 'Models that correctly classified' column
