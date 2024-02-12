@@ -31,9 +31,6 @@ def main():
     st.write("<div style='font-size: 16px; font-family: Arial, sans-serif;'><i>Developed by Nikesh Acharya | MS Data Science Capstone Project | Robert Morris University </i></div>", unsafe_allow_html=True)
     st.markdown("[Click here for GitHub Link](https://github.com/nikAcharya1/streamlit-ML-Nikesh)")
     st.title("Facial Image Classification App")
-    st.write("<div style='float: right; width: 30%;'>", unsafe_allow_html=True)
-    st.image("Test.jpg", width=50)
-    st.write("</div>", unsafe_allow_html=True) # Closing right side content
     st.write("<div style='font-size: 24px;'>This application allows a user to upload a facial image and it uses pre-trained AI models to classify if a person has eyeglasses or not. Additionally, user can provide feedback based on classification results to compare model performances. </div>", unsafe_allow_html=True)
     st.write("")
     st.write("<div style='font-size: 20px;'>Some FYIs:</div>", unsafe_allow_html=True)
@@ -49,7 +46,20 @@ def main():
     # Display the bulleted list using markdown
     st.markdown(bulleted_list, unsafe_allow_html=True)
     st.write("")
-
+    # Define a function to align image to the right
+    def align_image_right(image_path, width=None):
+        if width:
+            st.markdown(
+                f'<img src="{image_path}" width="{width}" style="float: right;">',
+                unsafe_allow_html=True,)
+        else:
+            st.markdown(
+                f'<img src="{image_path}" style="float: right;">',
+                unsafe_allow_html=True,)
+    
+    # Example usage
+    align_image_right("Test.jpg", width=50)
+    
     st.write("<hr style='margin: 10px;'>", unsafe_allow_html=True) # Horizontal line
     uploaded_file = st.file_uploader("**Choose a facial image...**", type=["png", "jpg", "jpeg"])
 
