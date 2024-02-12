@@ -107,10 +107,12 @@ def main():
             # Load existing data from CSV
             file_path = 'user_options3.csv'
             data = pd.read_csv(file_path)
-            total_responses = len(data)
-            st.write("<div style='text-align: center; font-size: 22px;'>Pie Chart Showing Correct Classifications Each Model Made So far:</div>", unsafe_allow_html=True)
+            total_responses = len(data) - 1
+            st.write("<div style='text-align: center; font-size: 22px;'><b>Pie Chart Showing Correct Classifications Each Model Made So far:</b></div>", 
+                     unsafe_allow_html=True)
             st.write("")
-            st.write(f"<div style='text-align: center; font-size: 20px;'>Total User Responses = {total_responses}</div>", unsafe_allow_html=True)
+            st.write(f"<div style='text-align: center; font-size: 20px;'>Total User Responses = {total_responses}</div>", 
+                     unsafe_allow_html=True)
 
             # Create a pie chart for 'Models that correctly classified'
             if not data.empty:
