@@ -45,7 +45,8 @@ def main():
     # Display the bulleted list using markdown
     st.markdown(bulleted_list, unsafe_allow_html=True)
     st.write("")
-    
+
+    st.write("<hr style='margin: 10px;'>", unsafe_allow_html=True) # Horizontal line
     uploaded_file = st.file_uploader("**Choose a facial image...**", type=["png", "jpg", "jpeg"])
 
     if uploaded_file is not None:
