@@ -1,6 +1,5 @@
-# Welcome to Streamlit!
-
-Edit `/streamlit_app.py` to customize this app to your heart's desire. :heart:
-
-If you have any questions, checkout our [documentation](https://docs.streamlit.io) and [community
-forums](https://discuss.streamlit.io).
+Using Streamlit cloud hosting platform, a public website is created that allows and instructs a
+user to upload a facial image and the app uses 5 pre-trained models to display binary image
+classification results (0 – no eyeglasses present, 1 – eyeglasses present). The Streamlit app is linked to a
+Github repository. The repository contains the saved models and a python program to execute the
+Streamlit web application.
