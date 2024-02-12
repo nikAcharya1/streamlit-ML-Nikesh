@@ -47,19 +47,9 @@ def main():
     st.markdown(bulleted_list, unsafe_allow_html=True)
     st.write("")
     # Define a function to align image to the right
-    def align_image_right(file_path, width=None):
-        if width:
-            st.markdown(
-                f'<img src="{file_path}" width="{width}" style="float: right;">',
-                unsafe_allow_html=True,)
-        else:
-            st.markdown(
-                f'<img src="{file_path}" style="float: right;">',
-                unsafe_allow_html=True,)
-    
-    # Example usage
-    align_image_right("Test.jpg", width=50)
-    
+    st.markdown(f'<img src="Test.jpg" width="50" style="float: right;">',
+                    unsafe_allow_html=True,)
+        
     st.write("<hr style='margin: 10px;'>", unsafe_allow_html=True) # Horizontal line
     uploaded_file = st.file_uploader("**Choose a facial image...**", type=["png", "jpg", "jpeg"])
 
