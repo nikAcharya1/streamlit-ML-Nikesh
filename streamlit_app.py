@@ -45,10 +45,6 @@ def main():
     
     # Display the bulleted list using markdown
     st.markdown(bulleted_list, unsafe_allow_html=True)
-    st.write("")
-    # Define a function to align image to the right
-    st.markdown(f'<img src="Test.jpg" width="50" style="float: right;">',
-                    unsafe_allow_html=True,)
         
     st.write("<hr style='margin: 10px;'>", unsafe_allow_html=True) # Horizontal line
     uploaded_file = st.file_uploader("**Choose a facial image...**", type=["png", "jpg", "jpeg"])
