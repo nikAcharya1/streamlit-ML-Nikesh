@@ -31,6 +31,10 @@ def main():
     st.write("<div style='font-size: 16px; font-family: Arial, sans-serif;'><i>Developed by Nikesh Acharya | MS Data Science Capstone Project | Robert Morris University </i></div>", unsafe_allow_html=True)
     st.markdown("[Click here for GitHub Link](https://github.com/nikAcharya1/streamlit-ML-Nikesh)")
     st.title("Facial Image Classification App")
+    st.image("Test.jpg", width=50)
+    st.write("<div style='float: right; width: 30%;'>", unsafe_allow_html=True)
+    # Add your content here for the right side
+    st.write("</div>", unsafe_allow_html=True) # Closing right side content
     st.write("<div style='font-size: 24px;'>This application allows a user to upload a facial image and it uses pre-trained AI models to classify if a person has eyeglasses or not. Additionally, user can provide feedback based on classification results to compare model performances. </div>", unsafe_allow_html=True)
     st.write("")
     st.write("<div style='font-size: 20px;'>Some FYIs:</div>", unsafe_allow_html=True)
