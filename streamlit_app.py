@@ -106,6 +106,7 @@ def main():
             data.to_csv(file_path, index=False)
             
             st.write("Data updated.")
+            st.write("<hr style='margin: 10px;'>", unsafe_allow_html=True) # Horizontal line
             
             # Load existing data from CSV
             file_path = 'user_options3.csv'
