@@ -28,7 +28,7 @@ def predict_image(image_array):
     return predictions13, predictions14
 
 def main():
-    st.write("<div style='font-size: 16px; font-family: Arial, sans-serif;'><i>Developed by Nikesh Acharya | Robert Morris University MS Data Science Capstone Project</i></div>", unsafe_allow_html=True)
+    st.write("<div style='font-size: 16px; font-family: Arial, sans-serif;'><i>Developed by Nikesh Acharya | MS Data Science Capstone Project | Robert Morris University </i></div>", unsafe_allow_html=True)
     st.title("Facial Image Classification App")
     st.write("<div style='font-size: 24px;'>This application allows a user to upload a facial image and it uses pre-trained AI models to classify if a person has eyeglasses or not. Additionally, user can provide feedback based on classification results to compare model performances. </div>", unsafe_allow_html=True)
     st.write("")
@@ -75,6 +75,7 @@ def main():
         options2 = ["Model A", "Model B", "Neither"]
 
         st.write("")
+        st.write("<hr style='margin: 5px;'>", unsafe_allow_html=True) # Horizontal line
         st.write("<div style='text-align: center; font-size: 24px;'>User Feedback on Model Accuracy</div>", unsafe_allow_html=True)
         
         selected_option1 = st.radio("Select correct class:", options1)
