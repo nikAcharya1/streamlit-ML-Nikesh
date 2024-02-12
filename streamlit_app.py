@@ -28,11 +28,9 @@ def predict_image(image_array):
     return predictions13, predictions14
 
 def main():
-    st.write("<div style='font-size: 16px; font-family: Arial, sans-serif;'><i>Developed by Nikesh Acharya | 
-    Robert Morris University MS Data Science Capstone Project</i></div>", unsafe_allow_html=True)
+    st.write("<div style='font-size: 16px; font-family: Arial, sans-serif;'><i>Developed by Nikesh Acharya | Robert Morris University MS Data Science Capstone Project</i></div>", unsafe_allow_html=True)
     st.title("Facial Image Classification App")
-    st.write("<div style='font-size: 24px;'>This application allows a user to upload a facial image and it uses pre-trained AI models to classify if a person has eyeglasses or not. 
-    Additionally, user can provide feedback based on classification results to compare model performances. </div>", unsafe_allow_html=True)
+    st.write("<div style='font-size: 24px;'>This application allows a user to upload a facial image and it uses pre-trained AI models to classify if a person has eyeglasses or not. Additionally, user can provide feedback based on classification results to compare model performances. </div>", unsafe_allow_html=True)
     st.write("")
     st.write("<div style='font-size: 20px;'>Some FYIs:</div>", unsafe_allow_html=True)
     
