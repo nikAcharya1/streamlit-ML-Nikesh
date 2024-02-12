@@ -47,14 +47,14 @@ def main():
     st.markdown(bulleted_list, unsafe_allow_html=True)
     st.write("")
     # Define a function to align image to the right
-    def align_image_right(image_path, width=None):
+    def align_image_right(file_path, width=None):
         if width:
             st.markdown(
-                f'<img src="{image_path}" width="{width}" style="float: right;">',
+                f'<img src="{file_path}" width="{width}" style="float: right;">',
                 unsafe_allow_html=True,)
         else:
             st.markdown(
-                f'<img src="{image_path}" style="float: right;">',
+                f'<img src="{file_path}" style="float: right;">',
                 unsafe_allow_html=True,)
     
     # Example usage
