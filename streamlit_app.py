@@ -65,7 +65,7 @@ def main():
         # Select option and submit entry
         
         # Load existing data from CSV (if it exists)
-        file_path = 'user_options3.csv'
+        file_path = 'user_options1.csv'
         try:
             data = pd.read_csv(file_path)
         except FileNotFoundError:
@@ -109,7 +109,7 @@ def main():
             st.write("<hr style='margin: 10px;'>", unsafe_allow_html=True) # Horizontal line
             
             # Load existing data from CSV
-            file_path = 'user_options3.csv'
+            file_path = 'user_options1.csv'
             data = pd.read_csv(file_path)
             total_responses = len(data) - 1
             st.write("<div style='text-align: center; font-size: 22px;'><b>Pie Chart Showing Correct Classifications Each Model Made So far:</b></div>", 
