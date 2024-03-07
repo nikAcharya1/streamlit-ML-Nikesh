@@ -65,11 +65,11 @@ def main():
         # Select option and submit entry
         
         # Load existing data from CSV (if it exists)
-        # file_path = 'user_options1.csv'
-        # try:
-            # data = pd.read_csv(file_path)
-        # except FileNotFoundError:
-            # data = pd.DataFrame(columns=['Actual Class', 'Models that correctly classified'])
+        file_path = 'user_options1.csv'
+        try:
+            data = pd.read_csv(file_path)
+        except FileNotFoundError:
+            data = pd.DataFrame(columns=['Actual Class', 'Models that correctly classified'])
 
         # Define a list of options
         options1 = ["0 - No Eyeglasses", "1 - Eyeglasses Present"]
@@ -98,29 +98,12 @@ def main():
            # Create a new DataFrame with the selected options
             new_data = pd.DataFrame({'Actual Class': selected_option1,
                                      'Models that correctly classified': selected_options2})
-            import git
-            # Clone the repository
-            repo = git.Repo.clone_from('https://github.com/nikAcharya1/streamlit-ML-Nikesh.git', '/path/to/local/repo')
-            
-            try:
-                data = pd.read_csv('https://github.com/nikAcharya1/streamlit-ML-Nikesh/user_options1.csv')
-            except FileNotFoundError:
-                data = pd.DataFrame(columns=['Actual Class', 'Models that correctly classified'])
             
             # Concatenate the new data with the existing DataFrame
             data = pd.concat([data, new_data], ignore_index=True)
 
-            # Save the updated DataFrame to the CSV file
-            # data.to_csv(file_path, index=False)
-
-            # Write the modified data back to the spreadsheet file
-            data.to_csv('/path/to/local/repo/user_options1.csv', index=False)
-            
-            # Commit and push changes
-            repo.git.add('/path/to/local/repo/user_options1.csv')
-            repo.index.commit('Updated spreadsheet via Streamlit form submission')
-            origin = repo.remote(name='origin')
-            origin.push()
+            Save the updated DataFrame to the CSV file
+            data.to_csv(file_path, index=False)
             
             st.write("Data updated.")
             st.write("<hr style='margin: 10px;'>", unsafe_allow_html=True) # Horizontal line
