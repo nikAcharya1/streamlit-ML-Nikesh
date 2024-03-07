@@ -103,7 +103,27 @@ def main():
             data = pd.concat([data, new_data], ignore_index=True)
 
             # Save the updated DataFrame to the CSV file
-            data.to_csv(file_path, index=False)
+            # data.to_csv(file_path, index=False)
+            import git
+
+            # Clone the repository
+            repo = git.Repo.clone_from('https://github.com/nikAcharya1/streamlit-ML-Nikesh.git', '/path/to/local/repo')
+            
+            # Modify the spreadsheet
+            # For example, if it's a CSV file
+            
+            data = pd.read_csv('/path/to/local/repo/user_options1.csv')
+            # Modify the dataframe based on user input
+            # Example: data.loc[data['column'] == 'value', 'column_to_modify'] = new_value
+            
+            # Write the modified data back to the spreadsheet file
+            data.to_csv('/path/to/local/repo/user_options1.csv', index=False)
+            
+            # Commit and push changes
+            repo.git.add('/path/to/local/repo/user_options1.csv')
+            repo.index.commit('Updated spreadsheet via Streamlit form submission')
+            origin = repo.remote(name='origin')
+            origin.push()
             
             st.write("Data updated.")
             st.write("<hr style='margin: 10px;'>", unsafe_allow_html=True) # Horizontal line
