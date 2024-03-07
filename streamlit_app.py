@@ -102,7 +102,7 @@ def main():
             # Concatenate the new data with the existing DataFrame
             data = pd.concat([data, new_data], ignore_index=True)
 
-            Save the updated DataFrame to the CSV file
+            # Save the updated DataFrame to the CSV file
             data.to_csv(file_path, index=False)
             
             st.write("Data updated.")
