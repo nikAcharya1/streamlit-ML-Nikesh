@@ -103,7 +103,7 @@ def main():
             repo = git.Repo.clone_from('https://github.com/nikAcharya1/streamlit-ML-Nikesh.git', '/path/to/local/repo')
             
             try:
-                data = pd.read_csv(https://github.com/nikAcharya1/streamlit-ML-Nikesh/user_options1.csv)
+                data = pd.read_csv('https://github.com/nikAcharya1/streamlit-ML-Nikesh/user_options1.csv')
             except FileNotFoundError:
                 data = pd.DataFrame(columns=['Actual Class', 'Models that correctly classified'])
             
