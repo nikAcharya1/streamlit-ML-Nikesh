@@ -103,7 +103,8 @@ def main():
             from github import Github
 
             # Replace 'access_token' with your actual token
-            g = Github(st.secrets["github_token"])
+            token = st.secrets["github_token"]
+            g = Github("token")
             
             # Access repository
             repo = g.get_repo("nikAcharya1/streamlit-ML-Nikesh")
