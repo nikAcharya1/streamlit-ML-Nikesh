@@ -3,4 +3,4 @@ pandas
 streamlit
 tensorflow
 matplotlib
-gitHub
+PyGithub
