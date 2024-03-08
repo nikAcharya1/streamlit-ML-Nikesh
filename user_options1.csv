@@ -1,0 +1,4 @@
+Image ID,Actual Class,Models that correctly classified
+face-982.png,1 - Eyeglasses Present,Model A
+face-982.png,1 - Eyeglasses Present,Model B
+i13992.jpg,0 - No Eyeglasses,Model B
