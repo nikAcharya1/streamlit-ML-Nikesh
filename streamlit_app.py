@@ -100,11 +100,10 @@ def main():
                                     'Actual Class': selected_option1,
                                      'Models that correctly classified': selected_options2})
             import os
-            github_token = os.getenv("token_for_streamlit")
             from github import Github
 
             # Replace 'access_token' with your actual token
-            g = Github(github_token)
+            g = st.secrets["github_token"]
             
             # Access repository
             repo = g.get_repo("nikAcharya1/streamlit-ML-Nikesh")
