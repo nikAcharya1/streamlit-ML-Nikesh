@@ -65,11 +65,11 @@ def main():
         # Select option and submit entry
         
         # Load existing data from CSV (if it exists)
-        file_path = 'user_options1.csv'
-        try:
-            data = pd.read_csv(file_path)
-        except FileNotFoundError:
-            data = pd.DataFrame(columns=['Actual Class', 'Models that correctly classified'])
+        # file_path = 'user_options1.csv'
+        # try:
+           # data = pd.read_csv(file_path)
+        # except FileNotFoundError:
+           # data = pd.DataFrame(columns=['Actual Class', 'Models that correctly classified'])
 
         # Define a list of options
         options1 = ["0 - No Eyeglasses", "1 - Eyeglasses Present"]
@@ -95,23 +95,41 @@ def main():
             # Filter the selected options based on the checkbox states
             selected_options2 = [option for option, state in checkbox_states.items() if state]
 
-           # Create a new DataFrame with the selected options
-            new_data = pd.DataFrame({'Actual Class': selected_option1,
+            # Create a new DataFrame with the selected options
+            new_data = pd.DataFrame({'Image ID': uploaded_file.name,
+                                    'Actual Class': selected_option1,
                                      'Models that correctly classified': selected_options2})
-            
-            # Concatenate the new data with the existing DataFrame
-            data = pd.concat([data, new_data], ignore_index=True)
 
-            # Save the updated DataFrame to the CSV file
-            data.to_csv(file_path, index=False)
+            from github import Github
+
+            # Replace 'access_token' with your actual token
+            g = Github("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")
+            
+            # Access repository
+            repo = g.get_repo("nikAcharya1/streamlit-ML-Nikesh")
+
+            # Download the spreadsheet file
+            contents = repo.get_contents("user_options1.csv")
+            d_data = io.BytesIO(contents.decoded_content)
+            data = pd.read_csv(d_data)
+            
+            # Handle form submission and modify the data
+            data = pd.concat([data, new_data], ignore_index=True)
+            
+            # Convert DataFrame back to CSV format
+            csv_data = data.to_csv(index=False)
+            
+            # Upload modified file to GitHub
+            repo.update_file("user_options1.csv", "Updated by Streamlit form submission", csv_data, contents.sha)
             
             st.write("Data updated.")
             st.write("<hr style='margin: 10px;'>", unsafe_allow_html=True) # Horizontal line
             
-            # Load existing data from CSV
-            file_path = 'user_options1.csv'
-            data = pd.read_csv(file_path)
-            total_responses = len(data) - 1
+          # Load existing data from CSV
+            contents = repo.get_contents("user_options1.csv")
+            d_data = io.BytesIO(contents.decoded_content)
+            data = pd.read_csv(d_data)
+            total_responses = len(data)
             st.write("<div style='text-align: center; font-size: 22px;'><b>Pie Chart Showing Correct Classifications Each Model Made So far:</b></div>", 
                      unsafe_allow_html=True)
             st.write("")
