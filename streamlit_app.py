@@ -104,10 +104,10 @@ def main():
 
             # Replace 'access_token' with your actual token
             token = st.secrets["github_token"]
-            g = Github(token)
+            # g = Github(token)
             
             # Access repository
-            repo = g.get_repo("nikAcharya1/streamlit-ML-Nikesh")
+            repo = token.get_repo("nikAcharya1/streamlit-ML-Nikesh")
 
             # Download the spreadsheet file
             contents = repo.get_contents("user_options1.csv")
