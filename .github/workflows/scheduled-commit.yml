@@ -13,14 +13,7 @@ jobs:
       
       - name: Set up Git
         run: |
-          git config --global user.email "actions@example.com"
-          git config --global user.name "GitHub Actions"
-      
-      - name: Create empty commit
-        run: |
+          git config user.email "actions@example.com"
+          git config user.name "GitHub Actions"
           git commit --allow-empty -m "Scheduled empty commit"
-      
-      - name: Push changes
-        uses: ad-m/github-push-action@master
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          git push origin HEAD:main
