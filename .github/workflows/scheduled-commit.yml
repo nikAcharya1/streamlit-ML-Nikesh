@@ -11,10 +11,13 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
       
-      - name: Create empty commit
+      - name: Set up Git
         run: |
           git config --global user.email "actions@example.com"
           git config --global user.name "GitHub Actions"
+      
+      - name: Create empty commit
+        run: |
           git commit --allow-empty -m "Scheduled empty commit"
       
       - name: Push changes
