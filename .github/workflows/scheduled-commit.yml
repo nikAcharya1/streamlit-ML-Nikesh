@@ -16,4 +16,4 @@ jobs:
           git config user.email "actions@example.com"
           git config user.name "GitHub Actions"
           git commit --allow-empty -m "Scheduled empty commit"
-          git push origin HEAD:main
+          git push origin HEAD:master
