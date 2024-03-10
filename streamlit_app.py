@@ -100,6 +100,7 @@ def main():
                                     'Actual Class': selected_option1,
                                      'Models that correctly classified': selected_options2})
             import os
+            import io
             from github import Github
 
             # Replace 'access_token' with your actual token
