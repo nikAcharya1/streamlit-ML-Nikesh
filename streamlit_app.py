@@ -65,7 +65,7 @@ def main():
         # Select option and submit entry
         
         # Load existing data from CSV (if it exists)
-        # file_path = 'user_options1.csv'
+        # file_path = 'user_options.csv'
         # try:
            # data = pd.read_csv(file_path)
         # except FileNotFoundError:
@@ -110,7 +110,7 @@ def main():
             repo = g.get_repo("nikAcharya1/streamlit-ML-Nikesh")
 
             # Download the spreadsheet file
-            contents = repo.get_contents("user_options1.csv")
+            contents = repo.get_contents("user_options.csv")
             d_data = io.BytesIO(contents.decoded_content)
             data = pd.read_csv(d_data)
             
@@ -121,13 +121,13 @@ def main():
             csv_data = data.to_csv(index=False)
             
             # Upload modified file to GitHub
-            repo.update_file("user_options1.csv", "Updated by Streamlit form submission", csv_data, contents.sha)
+            repo.update_file("user_options.csv", "Updated by Streamlit form submission", csv_data, contents.sha)
             
             st.write("Data updated.")
             st.write("<hr style='margin: 10px;'>", unsafe_allow_html=True) # Horizontal line
             
           # Load existing data from CSV
-            contents = repo.get_contents("user_options1.csv")
+            contents = repo.get_contents("user_options.csv")
             d_data = io.BytesIO(contents.decoded_content)
             data = pd.read_csv(d_data)
             total_responses = len(data)
