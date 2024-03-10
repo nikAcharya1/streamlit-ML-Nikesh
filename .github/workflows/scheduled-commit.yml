@@ -1,19 +1,23 @@
-name: Scheduled Empty Commit
+name: Empty Commit Every 2 Minutes
 
 on:
   schedule:
-    - cron: '*/5 * * * *' # Run every 1 minutes
-    - cron: '0 0 * * *' # Run daily at midnight
+    - cron: '*/2 * * * *' # Runs every 2 minutes
 
 jobs:
-  build:
+  create_empty_commit:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
+      - name: Checkout repository
         uses: actions/checkout@v2
-      - name: Empty commit
+      
+      - name: Create empty commit
         run: |
-          git config user.name "Nikesh Acharya"
-          git config user.email "tabalistnikesh@gmail.com"
+          git config --global user.email "actions@example.com"
+          git config --global user.name "GitHub Actions"
           git commit --allow-empty -m "Scheduled empty commit"
-          git push
+      
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
