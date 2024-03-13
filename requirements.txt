@@ -1,6 +1,6 @@
 altair
 pandas
 streamlit
-tensorflow
+tensorflow < 3.0.0
 matplotlib
 PyGithub
