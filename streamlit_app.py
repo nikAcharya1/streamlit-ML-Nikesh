@@ -63,14 +63,6 @@ def main():
         st.write("Model B =", round(predictions14[0][0]))
 
         # Select option and submit entry
-        
-        # Load existing data from CSV (if it exists)
-        # file_path = 'user_feedback.csv'
-        # try:
-           # data = pd.read_csv(file_path)
-        # except FileNotFoundError:
-           # data = pd.DataFrame(columns=['Actual Class', 'Models that correctly classified'])
-
         # Define a list of options
         options1 = ["0 - No Eyeglasses", "1 - Eyeglasses Present"]
         options2 = ["Model A", "Model B", "Neither"]
