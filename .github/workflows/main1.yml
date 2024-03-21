@@ -13,9 +13,7 @@ jobs:
       uses: actions/checkout@v2
 
     - name: Create empty commit
-      run: |
-        git config user.name "nikAcharya1"
-        git config user.email "tabalistnikesh@gmail.com"
+      run: 
         git commit --allow-empty -m "Scheduled empty commit" && git push
       env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
