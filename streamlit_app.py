@@ -95,7 +95,7 @@ def main():
             import io
             from github import Github
 
-            # Replace 'access_token' with your actual token
+            # Use Github token without displaying it publicly
             token = st.secrets["github_token"]
             g = Github(token)
             
