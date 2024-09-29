@@ -1,6 +1,6 @@
 altair
 pandas
 streamlit
-tensorflow == 2.14.0
+tensorflow 
 matplotlib
 PyGithub
