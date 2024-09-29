@@ -12,8 +12,8 @@ import warnings
 warnings.filterwarnings('ignore')
 
 # Load pre-trained model
-model13 = load_model('Model-A.h5')
-model14 = load_model('Model-B.h5')
+model13 = load_model('Model-A.h5', compile=False)
+model14 = load_model('Model-B.h5', compile=False)
 
 def preprocess_image(image_path):
     img = Image.open(image_path)
