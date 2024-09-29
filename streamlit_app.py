@@ -12,8 +12,8 @@ import warnings
 warnings.filterwarnings('ignore')
 
 # Load pre-trained model
-model13 = load_model('Model-A.h5', compile=False)
-model14 = load_model('Model-B.h5', compile=False)
+model13 = load_model('Model-A.h5', compile=False, custom_objects={'CustomLayer': CustomLayer})
+model14 = load_model('Model-B.h5', compile=False, custom_objects={'CustomLayer': CustomLayer})
 
 def preprocess_image(image_path):
     img = Image.open(image_path)
